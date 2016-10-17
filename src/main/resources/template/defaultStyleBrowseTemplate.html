@@ -1,0 +1,14 @@
+<!--浏览视图-->
+<div class="swiper-container" xmlns:th="http://www.thymeleaf.org" th:id="${componentId}">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" th:each="mallProduct:${dataList}">
+            <a th:href="@{/${mallProduct.contentURI}}" href="javascript:void(0)">
+                <img class="img-responsive center-block" th:each="galleryItem : ${mallProduct.galleryItems}"
+                     res:src="${galleryItem.thumbUri}"
+                 src="http://placehold.it/1920x540?text=1">
+            </a>
+        </div>
+    </div>
+    <div class="swiper-pagination swiper-pagination-white"></div>
+</div>
+<!--/预览视图-->
