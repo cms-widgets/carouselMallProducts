@@ -9,10 +9,6 @@
 
 package com.huotu.hotcms.widget.carouselMallProducts;
 
-import java.io.InputStream;
-import java.time.LocalDateTime;
-import java.util.*;
-
 import com.huotu.hotcms.service.common.ContentType;
 import com.huotu.hotcms.service.entity.Category;
 import com.huotu.hotcms.service.entity.Gallery;
@@ -30,17 +26,17 @@ import com.huotu.hotcms.service.service.GalleryService;
 import com.huotu.hotcms.widget.*;
 import com.huotu.hotcms.widget.entity.PageInfo;
 import com.huotu.hotcms.widget.service.PageService;
-import com.huotu.huobanplus.common.entity.Goods;
 import me.jiangcai.lib.resource.service.ResourceService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 
 import java.io.IOException;
-import java.util.Map;
+import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.util.*;
 
 
 /**
@@ -147,7 +143,6 @@ public class WidgetInfo implements Widget, PreProcessWidget {
         GalleryItemRepository galleryItemRepository = CMSContext.RequestContext().getWebApplicationContext().getBean(GalleryItemRepository.class);
         List<MallProductCategoryModel> list = new ArrayList<>();
         for (MallProductCategory mallProductCategory : mallProductCategorys) {
-            //todo 商品数据源对应的内容页
             setContentURI(variables, mallProductCategory);
             MallProductCategoryModel mallProductCategoryModel = mallProductCategory.toMallProductCategoryModel();
             mallProductCategoryModel.setGalleryItems(galleryItemRepository.findByGallery(mallProductCategory.getGallery()));
