@@ -10,7 +10,6 @@
 package com.huotu.hotcms.widget.carouselMallProducts;
 
 import com.huotu.hotcms.service.common.ContentType;
-import com.huotu.hotcms.service.common.SiteType;
 import com.huotu.hotcms.service.entity.Category;
 import com.huotu.hotcms.service.entity.Gallery;
 import com.huotu.hotcms.service.entity.GalleryItem;
@@ -76,7 +75,7 @@ public class WidgetInfo implements Widget, PreProcessWidget {
 
     @Override
     public String dependVersion() {
-        return "1.0-SNAPSHOT";
+        return "1.0";
     }
 
     @Override
@@ -150,10 +149,6 @@ public class WidgetInfo implements Widget, PreProcessWidget {
         variables.put(DATA_LIST,list);
     }
 
-    @Override
-    public SiteType supportedSiteType() {
-        return SiteType.SITE_PC_SHOP;
-    }
 
     public MallProductCategory initMallProductCategory(MallProductCategory parent) {
         CategoryService categoryService = getCMSServiceFromCMSContext(CategoryService.class);
