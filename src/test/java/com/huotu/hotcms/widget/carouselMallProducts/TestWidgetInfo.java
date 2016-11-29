@@ -57,7 +57,7 @@ public class TestWidgetInfo extends WidgetTest {
         String mallProductSerial = (String) properties.get(WidgetInfo.MALL_PRODUCT_SERIAL);
         MallProductCategoryRepository mallProductCategoryRepository = widget.getCMSServiceFromCMSContext(MallProductCategoryRepository.class);
         List<MallProductCategory> mallProductCategorys = mallProductCategoryRepository
-                .findBySiteAndParent_Serial(CMSContext.RequestContext().getSite(), mallProductSerial);
+                .findBySiteAndParent_SerialAndDeletedFalse(CMSContext.RequestContext().getSite(), mallProductSerial);
         assertThat(mallProductCategorys.size()).isEqualTo(webElement.findElements(By.className("swiper-slide")).size());
     }
 
