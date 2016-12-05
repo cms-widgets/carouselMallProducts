@@ -113,6 +113,10 @@ public class WidgetInfo implements Widget, PreProcessWidget {
         return null;
     }
 
+    @Override
+    public boolean disabled() {
+        return CMSContext.RequestContext().getSite().getOwner() != null && CMSContext.RequestContext().getSite().getOwner().getCustomerId() != null;
+    }
 
     @Override
     public ComponentProperties defaultProperties(ResourceService resourceService) throws IOException {
